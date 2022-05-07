@@ -1,0 +1,316 @@
+.slider{
+  width: 100%;
+  height: 100%;
+}
+
+.slider1{
+  position: absolute;
+  background-color: rgb(202, 219, 17);
+  animation-duration: 0.6s;
+  animation-delay: 0s;
+  animation-name: slide;
+}
+
+.slider2{
+  position: absolute;
+  background-color: rgb(17, 132, 219);
+  animation-duration: 1.6s;
+  animation-delay: 0s;
+  animation-name: slide2;
+}
+
+.slider3{
+  position: absolute;
+  background-color: rgb(219, 34, 17);
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-name: slide3;
+}
+
+.slider4{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: rgb(87, 90, 97);
+  animation-duration: 2.5s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in;
+  animation-name: slide4;
+}
+
+
+.slider4 a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  
+  animation-duration: 3s;
+  animation-delay: 0;
+  animation-timing-function: ease-in;
+  animation-name: button;
+}
+
+.slider4 a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.slider4 a span {
+  position: absolute;
+  display: block;
+}
+
+.slider4 a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.slider4 a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.slider4 a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.slider4 a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+
+
+@keyframes slide {
+  0%{
+    z-index: 9;
+    width: 0;
+    height: 100%;
+  }
+  100%{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes slide2 {
+  0%{
+    z-index: 9;
+    width: 0;
+    height: 100%;
+  }
+  100%{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes slide3 {
+  0%{
+    z-index: 9;
+    width: 0;
+    height: 100%;
+  }
+  100%{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes slide4 {
+  0%{
+    z-index: 9;
+    width: 0;
+    height: 100%;
+  }
+  30%{
+    z-index: 9;
+    width: 0;
+    height: 100%;
+  }
+  100%{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+@keyframes button {
+  0%{
+    visibility: hidden;
+  }
+  100%{
+    visibility: hidden;
+  }
+}
+
+
+/* ----------------------------- */
+
+
+.giant{
+  padding: 2rem;
+}
+
+.logo {
+  display: block;
+
+  width: 400px;
+  height: 400px;
+
+  line-height: 200px;
+  text-align: center;
+
+  color: white;
+  font-size: 2em;
+
+  background: #0099F7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(135deg, #0099F7, #F11712); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(135deg, #0099F7, #F11712); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: perspective(500px);
+  transform: perspective(500px);
+  margin-bottom: 75px;
+}
+
+.logo > span {
+  position: relative;
+  display: block;
+  -webkit-transform: translateZ(50px) scale(0.7);
+  transform: translateZ(50px) scale(0.7);
+}
+
+.logo > span:after {
+  content: "GitHub";
+  position: absolute;
+  color: white;
+  font-size: 18px;
+  top: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  opacity: 0.8;
+
+  transition: 0.3s ease all;
+}
+
+.logo > span:before {
+  content: "View source";
+  position: absolute;
+  color: white;
+  font-size: 18px;
+  top: 36px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+
+  opacity: 0;
+
+  display: inline-block;
+  width: 100%;
+
+  transition: 0.3s ease all;
+}
+
+.logo:hover > span:after {
+  opacity: 0;
+  transform: translateX(-50%) translateY(10px);
+}
+
+.logo:hover > span:before {
+  opacity: 0.8;
+  transform: translateX(-50%);
+}
+
+.logo > span > span {
+  display: block;
+  font-size: 12px;
+}
+
+.logo:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #333;
+  box-shadow: 0 20px 70px -10px rgba(51, 51, 51, 0.7), 0 50px 100px 0 rgba(51, 51, 51, 0.2);
+  z-index: -1;
+  -webkit-transform: translateZ(-50px);
+  transform: translateZ(-50px);
+  -webkit-transition: .3s;
+  transition: .3s;
+}
