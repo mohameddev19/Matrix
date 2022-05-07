@@ -180,69 +180,46 @@ if ("ontouchstart" in document.documentElement) {
 
 <script src="js/impress.js"></script>
 <script>impress().init();</script>
+<script src="js/vanilla-tilt.js" type="text/javascript"></script>
 <script src="js/three.min.js"></script>
 <script src="js/OrbitControls.js"></script>
 <script src="js/GLTFLoader.js"></script>
-<script src="js/vanilla-tilt.js" type="text/javascript"></script>
 <script>
 
     let scene, camera, renderer;
 
     function init() {
 
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xdddddd);
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
 
-    camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1,5000);
-    camera.rotation.y = 45/180*Math.PI;
-    camera.position.x = 800;
-    camera.position.y = 100;
-    camera.position.z = 1000;
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth / 2, window.innerHeight / 2 );
+        renderer.setClearColor( 0xffffff, 0);
+        document.getElementById('3d').appendChild( renderer.domElement );
 
-    controls = new THREE.OrbitControls(camera);
-    controls.addEventListener('change', renderer);
+        let light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+        scene.add( light );
 
-    hlight = new THREE.AmbientLight (0x404040,100);
-    scene.add(hlight);
+        camera.position.z = 1000;
 
-    directionalLight = new THREE.DirectionalLight(0xffffff,100);
-    directionalLight.position.set(0,1,0);
-    directionalLight.castShadow = true;
-    scene.add(directionalLight);
-    light = new THREE.PointLight(0xc4c4c4,10);
-    light.position.set(0,300,500);
-    scene.add(light);
-    light2 = new THREE.PointLight(0xc4c4c4,10);
-    light2.position.set(500,100,0);
-    scene.add(light2);
-    light3 = new THREE.PointLight(0xc4c4c4,10);
-    light3.position.set(0,100,-500);
-    scene.add(light3);
-    light4 = new THREE.PointLight(0xc4c4c4,10);
-    light4.position.set(-500,300,500);
-    scene.add(light4);
-
-    renderer = new THREE.WebGLRenderer({antialias:true});
-    renderer.setSize(window.innerWidth,window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-
-    let loader = new THREE.GLTFLoader();
-    loader.load('scene.gltf', function(gltf){
-        car = gltf.scene.children[0];
-        car.scale.set(0.5,0.5,0.5);
-        scene.add(gltf.scene);
-        animate();
-    });
+        new THREE.GLTFLoader().load('model/scene.gltf', gltf=>{
+            model = gltf.scene.children[0];
+            // model.scale.set(0.5,0.5,0.5);
+            scene.add(model);
+            model.rotation.x = 5;
+            model.rotation.y = 0;
+            animate();
+        });
     }
     function animate() {
-    renderer.render(scene,camera);
-    requestAnimationFrame(animate);
+        model.rotation.z += 0.01;
+        renderer.render(scene,camera);
+        requestAnimationFrame(animate);
     }
     init();
   
     
-    console.clear();
-    console.log('%c ' + 'Hi developer!', 'color: green; font-weight: bold;');
 
 
 </script>
